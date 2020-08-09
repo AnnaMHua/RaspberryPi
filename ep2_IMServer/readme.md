@@ -28,7 +28,7 @@ If your Raspberr Pi is under a router, you may need to set the port forwarding i
 
 You need to forward all the 443 port to your Raspberry Pi 443 port.
 
-### Step 2. Deploy
+### Step 3. Deploy
 
 ```
 sudo bash imEasyServer.sh
