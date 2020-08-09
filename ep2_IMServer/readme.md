@@ -24,7 +24,7 @@ myDomain=example.com # Your own domain, required
 ```
 
 ### Step 2. Forward port
-If your Raspberr Pi is under a router, you may need to set the port forwarding in your router [example](https://www.google.com/search?q=router+port+forwarding&oq=router+por). 
+If your Raspberr Pi is under a router, you may need to set the port forwarding in your router. We also have a toturial you can refer to. [\[Click to Open toturial\]](https://www.google.com/search?q=router+port+forwarding&oq=router+por) 
 
 You need to forward all the 443 port to your Raspberry Pi 443 port.
 
