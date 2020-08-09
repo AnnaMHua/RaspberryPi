@@ -201,7 +201,7 @@ function ngnix_Prox_config () {
 
 function rpiPortEnable () {
     sudo apt install ufw -y 
-    # sudo ufw enable
+    sudo ufw enable
     sudo ufw allow 443
     sudo ufw allow 80
     sudo ufw allow 8448
