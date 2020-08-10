@@ -87,6 +87,8 @@ fi
 
 function preRequisitesInstaller () {
     # apt installer 
+    sudo apt-get update -y
+    sudo apt-get upgrade -y
     sudo apt-get install -y build-essential python3-dev libffi-dev \
                             python-pip python-setuptools sqlite3 \
                             libssl-dev python-virtualenv libjpeg-dev libxslt1-dev
