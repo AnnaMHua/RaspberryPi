@@ -210,6 +210,14 @@ function rpiPortEnable () {
 }
 
 function autoTestMatrix () {
+    cd ${MatrixSynapseFolder}
+    source ${MatrixSynapseFolder}/venv/bin/activate
+    pythonVersion=$(python --version)
+    pipVersion=$(pip --version)
+    logThis " Matrix Synapse Env: ${pythonVersion} with ${pipVersion} " "INFO"
+    sudo -u $SUDO_USER synctl start
+
+
     if /usr/bin/wget "https://synapase.bakingrpi.com" --timeout 30 -O - 2 | grep "Your Synapse server is listening on this port and is ready for messages." > /dev/null; then 
           echo
           echo
