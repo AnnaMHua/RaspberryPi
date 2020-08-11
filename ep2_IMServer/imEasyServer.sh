@@ -292,8 +292,15 @@ function main () {
   autoTestMatrix
 }
 
-
-main
+if [ "$EUID" -ne 0 ]
+then
+  main
+else
+    echo "To prevent Permission Error, please run without sudo"
+    echo "example :   bash imEasyServer.sh "
+    exit
+fi
+#main
 #autoTestMatrix
 #ngnix_Prox_config test.com
 #hello
