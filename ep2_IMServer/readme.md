@@ -61,3 +61,4 @@ sudu ufw allow 22     # SSH
 sudo ufw allow 5900   # VNC
 ```
 
+### 2. sometimes the emojis can not display correctly on terminal
