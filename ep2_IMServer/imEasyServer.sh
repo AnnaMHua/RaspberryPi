@@ -96,7 +96,7 @@ function preRequisitesInstaller () {
 
 function CreateFolder () {
     logThis "Creating folder $1" "INFO"
-    sudo -u $SUDO_USER mkdir -p $1
+    mkdir -p $1
 }
 
 function synapseInstaller () {
@@ -164,7 +164,7 @@ function synapseConfig () {
     ## with 
 }
 
-
+# generate the 
 function tls_installer () {
     logThis "Set up TLS with Domain ${mainMyDomain}" "INFO"
     sudo apt-get install certbot python-certbot-nginx -y
@@ -172,8 +172,15 @@ function tls_installer () {
     sudo apt-get install nginx -y
 
     #generate certification
-    sudo certbot certonly --nginx -d ${mainMyDomain}
-
+    source ${CurrentDIR}/config.cfg
+    if sudo test -d /etc/letsencrypt/live/${mainMyDomain}; then
+        if [ "${OverwriteNginxCertification}" == "true" ]; then
+            sudo certbot certonly --nginx -d ${mainMyDomain}
+        fi
+    else
+        sudo certbot certonly --nginx -d ${mainMyDomain}
+    fi
+    
     # TODO double check the existance of the generated file
     
 }
@@ -216,7 +223,6 @@ function autoTestMatrix () {
     pipVersion=$(pip --version)
     logThis " Matrix Synapse Env: ${pythonVersion} with ${pipVersion} " "INFO"
     synctl start
-
 
     if /usr/bin/wget "https://${mainMyDomain}" --timeout 30 -O - 2 | grep "Your Synapse server is listening on this port and is ready for messages." > /dev/null; then 
           echo
