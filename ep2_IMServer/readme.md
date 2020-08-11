@@ -11,6 +11,12 @@ More Tutorials. please visit us:  [Baking Raspberry Pi](https://www.youtube.com/
 [![](http://img.youtube.com/vi/s2fLG0Mtzq0/0.jpg)](http://www.youtube.com/watch?v=s2fLG0Mtzq0 "")
 
 
+## Demo
+
+### Send message
+![demo1](/resource/ezgif-7-b560c67d3b6c.gif)
+
+
 ## Usage
 ### Step 1. Pre-request 
 
@@ -43,5 +49,15 @@ In this step, the script will do the following things:
 *  Check web connection to confirm install successfully
 
 
-##
+## Known issue
+
+### 1. ufw firewall issue
+if enable the SSH or VNC before install ufw package, the ufw can not be enabled. If the user need SSH or VNC, need to install ufw first 
+```
+sudo apt install ufw -y
+
+sudo ufw enable 
+sudu ufw allow 22     # SSH 
+sudo ufw allow 5900   # VNC
+```
 

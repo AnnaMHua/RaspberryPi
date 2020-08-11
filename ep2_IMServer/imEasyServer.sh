@@ -7,7 +7,7 @@
 #-------------------------
 
 # exit when any command fails
-set -e
+#set -e
 
 DATETIME="`date +%Y-%m-%d` `date +%T%z`" # Date format
 
