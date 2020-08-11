@@ -14,7 +14,13 @@ More Tutorials. please visit us:  [Baking Raspberry Pi](https://www.youtube.com/
 ## Demo
 
 ### Send message
-![demo1](/resource/ezgif-7-b560c67d3b6c.gif)
+![demo1](resource/ezgif-7-b560c67d3b6c.gif)
+
+### voice call
+
+
+### video Call
+
 
 
 ## Usage
