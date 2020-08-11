@@ -13,15 +13,14 @@ More Tutorials. please visit us:  [Baking Raspberry Pi](https://www.youtube.com/
 
 ## Demo
 
-### Send message
+### 1. Send message
 ![demo1](resource/ezgif-7-b560c67d3b6c.gif)
 
-### voice call
+### 2. voice call
 
 
-### video Call
-
-
+### 3. video Call
+![demo1](resource/ezgif-7-7f17edb248c4.gif)
 
 ## Usage
 ### Step 1. Pre-request 
