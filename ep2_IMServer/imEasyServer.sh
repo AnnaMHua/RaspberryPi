@@ -133,21 +133,19 @@ function synapseConfig () {
             read -p "Your have not set your somain in file config.cfg, Do you want to input by hand[Y/N]:" -n 1 -r
             echo    # (optional) move to a new line
             myDomain=${REPLY}
-            read -p "Please confirm your domain \"${myDomain}\"[Y/N]:" -n 1 -r
+            read -p "Please confirm your domain \"${myDomain}\"[Y/N]:" -r
             echo    # (optional) move to a new line
-            if [[ $REPLY =~ ^[Yy]$ ]]
-            then
-                echo "Using domain ${myDomain}"
-            else:
-                synapseInstaller
-            fi
+            myDomain=$REPLY
+            echo "Using domain ${myDomain}"    
+            
         else
             echo -e " \e[33m  Terminated Because of Domain is not set ! \e[0m "
             exit -2
         fi
     fi
 
-    
+    synapseInstaller
+
     logThis "Config Matrix Synapse with Domain ${myDomain}" "INFO"
     mainMyDomain=${myDomain}
 
@@ -217,13 +215,13 @@ function rpiPortEnable () {
 }
 
 function autoTestMatrix () {
-    cd ${MatrixSynapseFolder}
-    source ${MatrixSynapseFolder}/venv/bin/activate
-    pythonVersion=$(python --version)
-    pipVersion=$(pip --version)
-    logThis " Matrix Synapse Env: ${pythonVersion} with ${pipVersion} " "INFO"
-    synctl start
-
+    #cd ${MatrixSynapseFolder}
+    #source ${MatrixSynapseFolder}/venv/bin/activate
+    #pythonVersion=$(python --version)
+    #pipVersion=$(pip --version)
+    #logThis " Matrix Synapse Env: ${pythonVersion} with ${pipVersion} " "INFO"
+    #synctl start
+    mainMyDomain=test.bakingrpi.com
     if /usr/bin/wget "https://${mainMyDomain}" --timeout 30 -O - 2 | grep "Your Synapse server is listening on this port and is ready for messages." > /dev/null; then 
           echo
           echo
@@ -295,13 +293,14 @@ function main () {
 if [ "$EUID" -ne 0 ]
 then
   main
+  #autoTestMatrix
 else
     echo "To prevent Permission Error, please run without sudo"
     echo "example :   bash imEasyServer.sh "
     exit
 fi
 #main
-#autoTestMatrix
+
 #ngnix_Prox_config test.com
 #hello
 #main
