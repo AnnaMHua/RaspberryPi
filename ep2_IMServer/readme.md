@@ -42,7 +42,7 @@ You need to forward all the 443 port to your Raspberry Pi 443 port.
 ### Step 3. Deploy
 
 ```
-sudo bash imEasyServer.sh
+bash imEasyServer.sh
 ```
 In this step, the script will do the following things:
 
