@@ -8,7 +8,7 @@ The script is tested working on Raspberry Pi 4 with Raspberry PI OS(32-bit Relea
 
 More Tutorials. please visit us:  [Baking Raspberry Pi](https://www.youtube.com/channel/UCFBHlyED8_VZ2yfLXoAXrbg). 
 
-[![](http://img.youtube.com/vi/s2fLG0Mtzq0/0.jpg)](https://www.youtube.com/watch?v=_3i5tZ3SxSs "")
+[![](http://img.youtube.com/vi/3i5tZ3SxSs/0.jpg)](https://www.youtube.com/watch?v=_3i5tZ3SxSs "")
 
 
 ## Demo
