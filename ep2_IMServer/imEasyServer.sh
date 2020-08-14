@@ -130,14 +130,18 @@ function synapseConfig () {
         echo    # (optional) move to a new line
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
-            read -p "Your have not set your somain in file config.cfg, Do you want to input by hand[Y/N]:" -n 1 -r
+            read -p "Please input your domain [example.com]:" -r
             echo    # (optional) move to a new line
             myDomain=${REPLY}
             read -p "Please confirm your domain \"${myDomain}\"[Y/N]:" -r
             echo    # (optional) move to a new line
-            myDomain=$REPLY
-            echo "Using domain ${myDomain}"    
-            
+            if [[ $REPLY =~ ^[Yy]$ ]]
+            then
+                echo "Using domain ${myDomain}"
+            else
+                # TODO add the N process 
+                echo "Current does not support"
+            fi
         else
             echo -e " \e[33m  Terminated Because of Domain is not set ! \e[0m "
             exit -2
@@ -215,13 +219,13 @@ function rpiPortEnable () {
 }
 
 function autoTestMatrix () {
-    #cd ${MatrixSynapseFolder}
-    #source ${MatrixSynapseFolder}/venv/bin/activate
-    #pythonVersion=$(python --version)
-    #pipVersion=$(pip --version)
-    #logThis " Matrix Synapse Env: ${pythonVersion} with ${pipVersion} " "INFO"
-    #synctl start
-    mainMyDomain=test.bakingrpi.com
+    cd ${MatrixSynapseFolder}
+    source ${MatrixSynapseFolder}/venv/bin/activate
+    pythonVersion=$(python --version)
+    pipVersion=$(pip --version)
+    logThis " Matrix Synapse Env: ${pythonVersion} with ${pipVersion} " "INFO"
+    synctl start
+    #mainMyDomain=test.bakingrpi.com
     if /usr/bin/wget "https://${mainMyDomain}" --timeout 30 -O - 2 | grep "Your Synapse server is listening on this port and is ready for messages." > /dev/null; then 
           echo
           echo
