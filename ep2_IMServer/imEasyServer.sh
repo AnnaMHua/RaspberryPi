@@ -16,6 +16,12 @@ CurrentDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 MatrixSynapseFolder=${CurrentDIR}/Matrix/synapse
 
 
+# code take take one argument 
+if [ "$#" -eq 1 ]; then
+    MatrixSynapseFolder=$1
+fi 
+echo $MatrixSynapseFolder
+
 ## get the systematic information 
 #MyIP="$(dig +short myip.opendns.com @resolver1.opendns.com)"
 mainMyDomain="example.com"
@@ -125,7 +131,9 @@ function synapseConfig () {
     # read in the configure ration domain
     # read in the user input IP and compare with the auto detected IP
     source ${CurrentDIR}/config.cfg
-    if [ "${myDomain}" == "exapmle.com" ]; then
+   #if [ "${myDomain}" == "exapmle.com" ]; then
+    if [ "$myDomain" = "example.com" ]; then
+
         read -p "Your have not set your somain in file config.cfg, Do you want to input by hand[Y/N]:" -n 1 -r
         echo    # (optional) move to a new line
         if [[ $REPLY =~ ^[Yy]$ ]]
