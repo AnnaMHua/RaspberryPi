@@ -213,6 +213,13 @@ function restartSynapse () {
     synctl start
 }
 
+function Header () {
+    echo 
+}
+function trailer () {
+    echo 
+}
+
 function main () {
     fireWallConfig
     sudo apt-get update -y
@@ -229,6 +236,4 @@ function main () {
 
 }
 
-# LoadConfig
-#PasswordGenerator 30
 main

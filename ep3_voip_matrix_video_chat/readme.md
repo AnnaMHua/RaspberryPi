@@ -1,12 +1,19 @@
 # Easy Coturn
-![matrix](https://matrix.org/)
+![matrix](https://matrix.org/images/matrix-logo.svg)
 
-Bash script used install, set up coturn for the Matrix Synapse.
+The TURN Server is a VoIP media traffic NAT traversal server and gateway. It can be used as a general-purpose network traffic TURN server and gateway, too.
 
+Bash script used install, set up coturn for the Matrix Server. After this step you will be able to start a video or voice call from your element client. 
+
+# Demo 
+
+![videocall](./resource/ezgif-7-7f17edb248c4.gif)
 
 # Usage 
 
-## pre-install 
+All the script are tested with a newly installed Raspberry Pi OS (32-bit) Operation System.s
+
+## pre-install
 
 ### Step 1. Install Matrix Synapse
 
@@ -62,7 +69,7 @@ In the script it will finish the following steps:
 * restart the coturn service 
 * search for matrix folder edit homeserver.yaml 
   * homeserver.yaml
-* firewall 
+* enable firewall 
   * allow 5349
   * allow 3478    
   * allow 49152:65535/udp
@@ -85,3 +92,12 @@ Port Needed by coturn:
 49152-65535
 ```
 
+## Issues and Solutions
+
+### 1. If you start SSH before install ufw it may give 'can not determine version' error
+
+Install ufw before start the ssh
+```
+sudo apt install ufw -y
+sudo ufw allow 22
+```
